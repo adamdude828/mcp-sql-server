@@ -1,51 +1,40 @@
 {
-  "name": "@upstash/context7-mcp",
+  "name": "mcp-echo-server",
   "version": "1.0.0",
-  "description": "MCP server for Context7",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && chmod 755 dist/index.js",
-    "format": "prettier --write .",
-    "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
-    "lint:check": "eslint \"**/*.{js,ts,tsx}\"",
-    "start": "MCP_TRANSPORT=http node dist/index.js"
+  "description": "A minimal MCP server template that echoes messages",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "mcp-echo-server": "dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/upstash/context7.git"
+  "scripts": {
+    "build": "tsc && chmod 755 dist/index.js",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "modelcontextprotocol",
     "mcp",
-    "context7"
+    "server",
+    "echo",
+    "template"
   ],
-  "author": "abdush",
+  "author": "",
   "license": "MIT",
-  "type": "module",
-  "bin": {
-    "context7-mcp": "dist/index.js"
-  },
   "files": [
     "dist"
   ],
-  "bugs": {
-    "url": "https://github.com/upstash/context7/issues"
-  },
-  "homepage": "https://github.com/upstash/context7#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
-    "dotenv": "^16.5.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "@typescript-eslint/parser": "^8.28.0",
-    "eslint": "^9.23.0",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-prettier": "^5.2.5",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.28.0"
+    "tsx": "^4.17.0",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
